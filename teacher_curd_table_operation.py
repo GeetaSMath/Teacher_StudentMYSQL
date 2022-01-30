@@ -81,6 +81,11 @@ class DBQueries:
             query_teacher_data_delete = "delete from teacher_table where teacher_Id=%d" % teacher_Id
             self.cursor.execute(query_teacher_data_delete)
             self.connection.commit()
+            # techer from teacher with cascade delete
+            query ="DELETE FROM teacher_table " \
+                   "WHERE teacher_Id=181;"
+            get_query = self.connection.selectquery(query)
+            print(get_query)
             logging.info("Delete data which inserted")
             logging.debug("Update data")
             return "done operation"
@@ -89,9 +94,7 @@ class DBQueries:
 
 
 perform_operation = DBQueries()
-# perform_operation.insert_teacher_data(200, 'pavan', 'prakru', 'male', '4216549885' ,30000.00, '2021-06-05', 1002)
-# perform_operation.insert_teacher_data(201, 'amith', 'okali', 'male', '4216549488' ,40000.00, '2018-06-05', 1003)
-# perform_operation.insert_teacher_data(202, 'chandana', 'prakru', 'Female', '4216549488' ,50000.00, '2019-06-05', 1004)
-# # perform_operation.retrive_teacher_data()
-# perform_operation.update_teacher_data('Rutvi',111)
-# perform_operation.delete_teacher_data(141)
+perform_operation.insert_teacher_data(200, 'pavan', 'prakru', 'male', '4216549885' ,30000.00, '2021-06-05', 1002)
+perform_operation.retrive_teacher_data()
+perform_operation.update_teacher_data('Rutvi',111)
+perform_operation.delete_teacher_data(141)

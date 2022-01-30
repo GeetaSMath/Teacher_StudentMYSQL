@@ -77,6 +77,10 @@ class DBQueriesOperation:
             query_student_data_delete = "delete from Student_table where Student_Id=%d" % Student_Id
             self.cursor.execute(query_student_data_delete)
             self.connection.commit()
+            # student from student with cascade delete
+            query = "DELETE FROM student_table WHERE Student_Id=161";
+            get_query = self.connection.selectquery(query)
+            print(get_query)
             logging.info("Delete data which inserted")
             logging.debug("Update data")
             return "done operation"

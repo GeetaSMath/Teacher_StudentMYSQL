@@ -24,7 +24,13 @@ class DBQueriesOperation:
                          % (dept_id, DepartmentName, teacher_Id, Student_Id)
             self.cursor.execute(query_department_data_insert)
             self.connection.commit()
-            logging.info("Suceefully")
+            # get department name which teacher belongs by innerjoin
+
+            query = "select DepartmentName from department inner join teacher_table" \
+                    " on department.dept_id = teacher_table.dept_id";
+            get_query = self.connection.select_query(query)
+            print(get_query)
+            logging.info ("sucessfully")
             logging.debug("Department Detailes are")
             return "created Department table structure"
         except Exception as err:

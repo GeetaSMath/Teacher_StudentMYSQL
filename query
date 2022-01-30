@@ -1,0 +1,47 @@
+ database
+use payroll_servicedetailes;
+
+department table:
+CREATE TABLE department( DepartmentId INT PRIMARY KEY, DepartmentName VARCHAR(250) NOT NULL, teacher_Id
+INT REFERENCES teacher_table(teacher_Id),
+Student_Id INT REFERENCES student_table(Student_Id));
+    select * from department;
+
+*inner join to get department
+select * from department inner join teacher_table on department.DepartmentId = teacher_table.dept_id;
+
+*deletion query
+DELETE FROM student_table
+WHERE Student_Id=161;
+
+*deletion query teacher table
+DELETE FROM teacher_table
+WHERE teacher_Id=181;
+
+*created teacher student mapping table
+create student teacher mapping table for cascade delete
+
+CREATE TABLE teacher_student_mapping (
+    teacher_Id INT,
+    Student_Id INT,
+    PRIMARY KEY(teacher_Id, Student_Id),
+    FOREIGN KEY(teacher_Id)
+        REFERENCES teacher_table(teacher_Id)
+        ON DELETE CASCADE,
+    FOREIGN KEY(Student_Id)
+        REFERENCES student_table(Student_Id)
+        ON DELETE CASCADE
+);
+
+INSERT INTO teacher_student_mapping(teacher_Id, Student_Id)
+ VALUES(181, 104),
+ (191, 161);
+
+
+*query to get all the student and teacher name by using inner join from teacher table and student table
+select  Student_Id, teacher_Id
+FROM teacher_table tb
+INNER JOIN teacher_student_mapping tm
+ON tb.teacher_Id = tm.teacher_Id
+INNER JOIN student_table st
+ON st.Student_Id = tm.Student_Id;
