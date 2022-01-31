@@ -1,7 +1,7 @@
 import logging
 from db_connection import DataBase
 
-logging.basicConfig(filename='employee_service.log', filemode='a', level=logging.DEBUG,
+logging.basicConfig(filename='../employee_service.log', filemode='a', level=logging.DEBUG,
                     format='%(levelname)s :: %(name)s :: %(asctime)s :: %(message)s')
 
 class DBQueriesOperation:
@@ -43,8 +43,9 @@ class DBQueriesOperation:
             logging.info("Retrive data which inserted")
             logging.debug("existed data")
             res = self.cursor.fetchall()
-            for val in res:
-                print(val)
+            return res
+            # for val in res:
+            #     print(val)
         except Exception as err:
             logging.error(f"Error: {err}")
 
@@ -87,7 +88,7 @@ class DBQueriesOperation:
         except Exception as err:
             logging.error(f"Error: {err}")
 
-perform_operation_student = DBQueriesOperation()
+# perform_operation_student = DBQueriesOperation()
 # perform_operation_student.insert_student_data(163, 'pallavi', 'Math', 'Female', 'Mechanical')
 # perform_operation_student.update_student_data('shivam',162)
 # perform_operation_student.retrive_student_data()

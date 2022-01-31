@@ -1,7 +1,7 @@
 import logging
 from db_connection import DataBase
 
-logging.basicConfig(filename='employee_service.log', filemode='a', level=logging.DEBUG,
+logging.basicConfig(filename='../employee_service.log', filemode='a', level=logging.DEBUG,
                     format='%(levelname)s :: %(name)s :: %(asctime)s :: %(message)s')
 
 class DBQueriesOperation:
