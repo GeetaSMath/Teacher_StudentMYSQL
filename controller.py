@@ -5,6 +5,10 @@ from query.teacher_student_mapping import DBQueriesST
 
 class controllinfo():
     def get_student_details(self):
+        """
+         created function get infromation
+        :return:
+        """
         perform_operation_student = DBQueriesOperation()
         perform_operation_student.insert_student_data(200, 'sangeeta', 'Math', 'Female', 'cse')
         output=perform_operation_student.retrive_student_data()
@@ -14,6 +18,10 @@ class controllinfo():
         perform_operation_student.update_student_data()
 
     def get_teacher_details(self):
+        """
+         get teacher details from teacher
+        :return:
+        """
         perform_operation = DBQueries()
         perform_operation.insert_teacher_data()
         output = perform_operation.retrive_teacher_data()
@@ -23,6 +31,10 @@ class controllinfo():
         perform_operation.delete_teacher_data()
 
     def get_department_details(self):
+        """
+         get department details
+        :return:
+        """
         perform_department_operation = DBQueriesOperation()
         perform_department_operation.insert_department_data()
         output=perform_department_operation.retrive_department_data()
@@ -32,6 +44,10 @@ class controllinfo():
         perform_department_operation.update_department_data()
 
     def get_stu_teacher_mapping(self):
+        """
+         get student teachet details
+        :return:
+        """
         inser_data = DBQueriesST()
         inser_data.insert_teacher_student_mappingdata(181, 101)
 

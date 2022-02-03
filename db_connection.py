@@ -33,5 +33,3 @@ class DataBase:
                 else:
                     print(er)
 
-# call = DataBase.mysqlconnect_database()
-# print(call)

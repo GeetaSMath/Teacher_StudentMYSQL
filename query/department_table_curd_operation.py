@@ -11,7 +11,7 @@ class DBQueriesOperation:
 
     def insert_department_data(self, dept_id, DepartmentName, teacher_Id, Student_Id):
         """
-
+         inserting department data dept_id,department name, teacher_id, student_id
         :param DepartmentId:
         :param DepartmentName:
         :param teacher_Id:
@@ -24,7 +24,6 @@ class DBQueriesOperation:
                          % (dept_id, DepartmentName, teacher_Id, Student_Id)
             self.cursor.execute(query_department_data_insert)
             self.connection.commit()
-            # get department name which teacher belongs by innerjoin
 
             query = "select DepartmentName from department inner join teacher_table" \
                     " on department.dept_id = teacher_table.dept_id";
@@ -37,13 +36,18 @@ class DBQueriesOperation:
             logging.error(f"Error: {err}")
 
     def update_department_data(self, DepartmentName, dept_id ):
-
+        """
+         updating department data with dept id reference
+        :param DepartmentName:
+        :param dept_id:
+        :return:
+        """
         try:
             query_department_data_update = "update Department set DepartmentName='%s' where DepartmentId=%d" % (
-            DepartmentName, dept_id)
+                DepartmentName, dept_id)
             self.cursor.execute(query_department_data_update)
             self.connection.commit()
-            logging.info("Suceefully Get All the teacher table")
+            logging.info("Successfully Get All the teacher table")
             logging.debug("department Detailes are")
             return "created teacher table structure"
         except Exception as err:
@@ -84,9 +88,9 @@ class DBQueriesOperation:
 
 
 perform_department_operation = DBQueriesOperation()
-# perform_department_operation.insert_department_data(10102, 'civil', 200, 101)
+perform_department_operation.insert_department_data(10102, 'civil', 200, 101)
 perform_department_operation.insert_department_data(1002, 'civil', 202, 165)
 perform_department_operation.retrive_department_data()
-# perform_department_operation.update_department_data()
-# perform_department_operation.delete_department_data()
+perform_department_operation.update_department_data()
+perform_department_operation.delete_department_data()
 

@@ -65,6 +65,7 @@ class DBQueries:
             self.connection.commit()
             logging.info("Retrive data which inserted")
             logging.debug("existed data")
+            self.connection.commit()
             res = self.cursor.fetchall()
             for val in res:
                 print(val)
@@ -81,11 +82,11 @@ class DBQueries:
             query_teacher_data_delete = "delete from teacher_table where teacher_Id=%d" % teacher_Id
             self.cursor.execute(query_teacher_data_delete)
             self.connection.commit()
-            # techer from teacher with cascade delete
             query ="DELETE FROM teacher_table " \
                    "WHERE teacher_Id=181;"
             get_query = self.connection.selectquery(query)
             print(get_query)
+            self.connection.commit()
             logging.info("Delete data which inserted")
             logging.debug("Update data")
             return "done operation"
