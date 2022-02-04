@@ -87,10 +87,3 @@ class DBQueriesOperation:
             logging.error(f"Error: {err}")
 
 
-perform_department_operation = DBQueriesOperation()
-perform_department_operation.insert_department_data(10102, 'civil', 200, 101)
-perform_department_operation.insert_department_data(1002, 'civil', 202, 165)
-perform_department_operation.retrive_department_data()
-perform_department_operation.update_department_data()
-perform_department_operation.delete_department_data()
-

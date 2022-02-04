@@ -31,6 +31,7 @@ class DBQueriesOperation:
         except Exception as err:
             logging.error(f"Error: {err}")
 
+
     def retrive_student_data(self):
         """
          created function to retrive data from student_table , this module containes loggers and exception
@@ -88,8 +89,3 @@ class DBQueriesOperation:
         except Exception as err:
             logging.error(f"Error: {err}")
 
-perform_operation_student = DBQueriesOperation()
-perform_operation_student.insert_student_data(163, 'pallavi', 'Math', 'Female', 'Mechanical')
-perform_operation_student.update_student_data('shivam',162)
-perform_operation_student.retrive_student_data()
-perform_operation_student.delete_student_data(102)

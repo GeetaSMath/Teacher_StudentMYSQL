@@ -34,9 +34,6 @@ class DBQueriesST:
         except Exception as err:
             logging.error(f"Error: {err}")
 
-inser_data = DBQueriesST()
-inser_data.insert_teacher_student_mappingdata(181, 101)
-inser_data.insert_teacher_student_mappingdata(191, 104)
 
 
 

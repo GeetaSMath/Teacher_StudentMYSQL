@@ -94,8 +94,3 @@ class DBQueries:
             logging.error(f"Error: {err}")
 
 
-perform_operation = DBQueries()
-perform_operation.insert_teacher_data(200, 'pavan', 'prakru', 'male', '4216549885' ,30000.00, '2021-06-05', 1002)
-perform_operation.retrive_teacher_data()
-perform_operation.update_teacher_data('Rutvi',111)
-perform_operation.delete_teacher_data(141)
