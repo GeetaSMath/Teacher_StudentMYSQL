@@ -45,8 +45,6 @@ class DBQueriesOperation:
             logging.debug("existed data")
             res = self.cursor.fetchall()
             return res
-            # for val in res:
-            #     print(val)
         except Exception as err:
             logging.error(f"Error: {err}")
 
